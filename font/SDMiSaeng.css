@@ -1,0 +1,20 @@
+/*
+  SDMiSaeng
+*/
+
+@font-face {
+  font-family: "SDMiSaeng";
+  src: url('./SDMiSaeng.eot');
+  src: url('./SDMiSaeng.eot?#iefix'); format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SDMiSaeng";
+  src: url('./SDMiSaeng.woff') format('woff'),
+       url('./SDMiSaeng.woff2') format('woff2'),
+       url('./SDMiSaeng.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

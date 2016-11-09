@@ -1,7 +1,7 @@
 === Plugin Name ===
 Contributors: miracl2l22
 Donate link: http://
-Tags: korea, korean, hangeul, font
+Tags: korea, korean, hangeul, fonts, font
 Requires at least: 4.0
 Tested up to: 4.6.1
 Stable tag: 0.1
@@ -19,7 +19,10 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 == Installation ==
 
 1. `/wp-content/plugins/sdmisaeng-font`에 플러그인을 업로드 합니다.
+1. 
+
 2. `sdmisaeng-font` 플러그인(plugin)을 환성화(activate) 합니다.
+2. 
 
 == Frequently Asked Questions ==
 
@@ -32,7 +35,7 @@ A
 == Changelog ==
 
 = 0.1 =
-미생체 스타일시트(stylesheet) 적용
+미생체 스타일시트(SDMiSaeng.css) 적용
 
 == Upgrade Notice ==
 

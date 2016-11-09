@@ -26,14 +26,22 @@
 // Exit if accessed directely
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-if ( ! class_exists( 'SDMiSaeng_font' ) ) {
+if ( ! class_exists( 'Hangeul_Web_Font' ) ) {
 
-	class SDMiSaeng_font {
+	class Hangeul_Web_Font {
 
 		private static $instance;
 
+		private $admin_page;
+
 		public function __construct() {
 		  add_action( 'wp_enqueue_scripts', array( $this, 'register_font_css' ) );
+
+			$this -> load_files();
+		}
+
+		public function load_files() {
+			require_once ( 'includes/class-admin.php' );
 		}
 
 		public function register_font_css() {
@@ -43,15 +51,16 @@ if ( ! class_exists( 'SDMiSaeng_font' ) ) {
 
 		public static function getInstance() {
 			if ( ! isset( self::$instance ) ) {
-				self::$instance           = new SDMiSaeng_font;
+				self::$instance             = new Hangeul_Web_Font;
+				self::$instance->admin_page = new Hangeul_Web_Font_admin;
 			}
 			return self::$instance;
 		}
 	}
 }
 
-function SDMiSaeng_font(){
-	return SDMiSaeng_font::getInstance();
+function Hangeul_Web_Font(){
+	return Hangeul_Web_Font::getInstance();
 }
 
-SDMiSaeng_font();
+Hangeul_Web_Font();

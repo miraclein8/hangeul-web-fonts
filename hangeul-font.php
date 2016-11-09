@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: 한글 폰트 - Hangeul Font
+ * Plugin Name: Hangeul Font
  * Description: 워드프레스용 한글 폰트 - Hangeul Font for WordPress
  * Version: 0.1
  * Author: miracl2l22

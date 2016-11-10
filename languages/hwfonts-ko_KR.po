@@ -1,0 +1,49 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: hwfonts\n"
+"POT-Creation-Date: 2016-11-10 21:03+0900\n"
+"PO-Revision-Date: 2016-11-10 21:04+0900\n"
+"Last-Translator: \n"
+"Language-Team: miracl2l22 <miracl2l22@gmail.com>\n"
+"Language: ko_KR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.11\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: includes\n"
+
+#: includes/class-admin.php:20 includes/class-admin.php:21
+#: includes/class-admin.php:32
+msgid "Hangeul Web Fonts"
+msgstr "웹폰트"
+
+#: includes/class-admin.php:60
+msgid "Web Fonts To Use"
+msgstr "사용할 폰트"
+
+#: includes/class-admin.php:91
+msgid "SDMiSaeng"
+msgstr "미생체"
+
+#: includes/class-admin.php:96
+msgid "Jeju Hallasan"
+msgstr "제주한라산체"
+
+#: includes/class-admin.php:100
+msgid "Jeju Gothic"
+msgstr "제주고딕체"
+
+#: includes/class-admin.php:104
+msgid "Jeju Myeongjo"
+msgstr "제주명조체"
+
+#~ msgid "Web Fonts Settings"
+#~ msgstr "웹폰트 설정"
+
+#~ msgid "Use SDMiSaeng"
+#~ msgstr "미생체 사용"

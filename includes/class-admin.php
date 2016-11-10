@@ -6,98 +6,103 @@
 // Exit if accessed directely
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-class Hangeul_Web_Font_admin extends Hangeul_Web_Font {
+class Hangeul_Web_Fonts_admin {
 
 	private $options;
 
 	public function __construct() {
-		add_action( 'admin_menu', array( $this, 'add_fonts_options' ) );
+		add_action( 'admin_menu', array( $this, 'add_hwfonts_options_page' ) );
 		add_action( 'admin_init', array( $this, 'page_init' ) );
 	}
 
-	public function add_fonts_options() {
+	public function add_hwfonts_options_page() {
 		add_options_page(
-			'Settings Admin', 
-			__( 'Hangeul Web Fonts' , 'hwfonts' ), 
+			__( 'Hangeul Web Fonts', 'hwfonts' ), 
+			__( 'Hangeul Web Fonts', 'hwfonts' ), 
 			'manage_options', 
 			'hangeul-web-fonts', 
-			array( $this, 'create_admin_page' )
+			array( $this, 'create_hwfonts_page' )
 		);
 	}
 
-	public function create_admin_page() {
-		$this->options = get_option( 'my_option_name' );
+	public function create_hwfonts_page() {
+		$this->options = get_option( 'hwfonts_options' );
 		?>
-			<div class="wrap">
-				<h1>Hangeul Web Fonts</h1>
-				<div class="card">
+		<div class="wrap">
+			<h1><?php _e( 'Hangeul Web Fonts', 'hwfonts' ) ?></h1>
+			<form method="post" action="options.php">
 				<?php
-				settings_fields( 'my_option_group' );
-				do_settings_sections( 'my-setting-admin' );
-				submit_button();
+					settings_fields( 'hwfonts_options_group' );
+					do_settings_sections( 'hangeul-web-fonts' );
+					submit_button();
 				?>
-				</div>
-			</div>
+			</form>
+		</div>
 		<?php
 	}
 
 	public function page_init() {        
-	register_setting(
-	'my_option_group', // Option group
-	'my_option_name', // Option name
-	array( $this, 'sanitize' ) // Sanitize
-	);
+		register_setting(
+			'hwfonts_options_group', // Option group
+			'hwfonts_options', // Option name
+			array( $this, 'sanitize' ) // Sanitize
+		);
 
-	add_settings_section(
-	'setting_section_id', // ID
-	'My Custom Settings', // Title
-	array( $this, 'print_section_info' ), // Callback
-	'my-setting-admin' // Page
-	);  
+		add_settings_section(
+			'web_fonts_settings_section', // ID
+			__( '', 'hwfonts' ), // Title
+			array( $this, 'web_fonts_section_desc' ), // Callback
+			'hangeul-web-fonts' // Page
+		);  
 
-	add_settings_field(
-	'id_number', // ID
-	'ID Number', // Title 
-	array( $this, 'id_number_callback' ), // Callback
-	'my-setting-admin', // Page
-	'setting_section_id' // Section           
-	);      
-
-	add_settings_field(
-	'title', 
-	'Title', 
-	array( $this, 'title_callback' ), 
-	'my-setting-admin', 
-	'setting_section_id'
-	);      
+		add_settings_field(
+			'web_fonts_to_use', // ID
+			__( 'Web Fonts To Use', 'hwfonts' ), // Title 
+			array( $this, 'web_fonts_to_use_cb' ), // Callback
+			'hangeul-web-fonts', // Page
+			'web_fonts_settings_section' // Section           
+		);
 	}
 
 	public function sanitize( $input ) {
-	$new_input = array();
-	if( isset( $input['id_number'] ) )
-	$new_input['id_number'] = absint( $input['id_number'] );
+		$new_input = array();
 
-	if( isset( $input['title'] ) )
-	$new_input['title'] = sanitize_text_field( $input['title'] );
+		if( isset( $input['is_sdmisaeng'] ) )
+			$new_input['is_sdmisaeng'] = $input['is_sdmisaeng'];
 
-	return $new_input;
+		if( isset( $input['is_jejuhallasan'] ) )
+			$new_input['is_jejuhallasan'] = $input['is_jejuhallasan'];
+
+		if( isset( $input['is_jejugothic'] ) )
+			$new_input['is_jejugothic'] = $input['is_jejugothic'];
+
+		if( isset( $input['is_jejuhallasan'] ) )
+			$new_input['is_jejumyeongjo'] = $input['is_jejumyeongjo'];
+
+		return $new_input;
 	}
 
-	public function print_section_info() {
-	print 'Enter your settings below:';
+	public function web_fonts_section_desc() {
+		//print 'Enter your settings below:';
 	}
 
-	public function id_number_callback() {
-	printf(
-	'<input type="text" id="id_number" name="my_option_name[id_number]" value="%s" />',
-	isset( $this->options['id_number'] ) ? esc_attr( $this->options['id_number']) : ''
-	);
-	}
-
-	public function title_callback() {
-	printf(
-	'<input type="text" id="title" name="my_option_name[title]" value="%s" />',
-	isset( $this->options['title'] ) ? esc_attr( $this->options['title']) : ''
-	);
+	public function web_fonts_to_use_cb() {
+		printf(
+			'<input %s type="checkbox" name="hwfonts_options[is_sdmisaeng]" id="is_sdmisaeng" value="1" /> <label class="lbl_sdmisaeng">' . __( 'SDMiSaeng', 'hwfonts' ) . '</label> <label> ( font-family: SDMiSaeng; ) </label><p></p><br />',
+			( isset( $this->options['is_sdmisaeng'] ) && $this->options['is_sdmisaeng'] === '1' ) ? 'checked' : ''
+			
+		);
+		printf(
+			'<input %s type="checkbox" name="hwfonts_options[is_jejuhallasan]" id="is_jejuhallasan" value="1" /> <label class="lbl_jejuhallasan">' . __( 'Jeju Hallasan', 'hwfonts' ) . '</label> <label> ( font-family: Jeju Hallasan; ) </label><p></p><br />',
+			( isset( $this->options['is_jejuhallasan'] ) && $this->options['is_jejuhallasan'] === '1' ) ? 'checked' : ''
+		);
+		printf(
+			'<input %s type="checkbox" name="hwfonts_options[is_jejugothic]" id="is_jejugothic" value="1" /> <label class="lbl_jejugothic">' . __( 'Jeju Gothic', 'hwfonts' ) . '</label> <label> ( font-family: Jeju Gothic; ) </label><p></p><br />',
+			( isset( $this->options['is_jejugothic'] ) && $this->options['is_jejugothic'] === '1' ) ? 'checked' : ''
+		);
+		printf(
+			'<input %s type="checkbox" name="hwfonts_options[is_jejumyeongjo]" id="is_jejumyeongjo" value="1" /> <label class="lbl_jejumyeongjo">' . __( 'Jeju Myeongjo', 'hwfonts' ) . '</label> <label> ( font-family: Jeju Myeongjo; ) </label><p></p>',
+			( isset( $this->options['is_jejumyeongjo'] ) && $this->options['is_jejumyeongjo'] === '1' ) ? 'checked' : ''
+		);
 	}
 }

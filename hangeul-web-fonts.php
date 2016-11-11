@@ -2,7 +2,7 @@
 /**
  * Plugin Name: 한글 웹폰트 - Hangeul Web Fonts
  * Description: 워드프레스용 한글 웹폰트 - Hangeul Web Fonts for WordPress
- * Version: 0.2
+ * Version: 0.3
  * Author: miracl2l22
  * License: GPL2
  */
@@ -51,36 +51,51 @@ if ( ! class_exists( 'Hangeul_Web_Font' ) ) {
 			$admin_page = new stdClass();
 			$admin_page->options = get_option( 'hwfonts_options' );
 
+			// 미생체 - SDMiSaeng
 			if ( isset($admin_page->options['is_sdmisaeng']) && $admin_page->options['is_sdmisaeng'] === '1' ) {
 				wp_register_style('sdmisaeng', plugins_url( 'hangeul-web-fonts/css/SDMiSaeng.css' ) );
 				wp_enqueue_style('sdmisaeng');
 			}
-			if ( isset($admin_page->options['is_jejuhallasan']) && $admin_page->options['is_jejuhallasan'] === '1' ) {
-				wp_register_style('jejuhallasan', 'http://fonts.googleapis.com/earlyaccess/jejuhallasan.css' );
-				wp_enqueue_style('jejuhallasan');
-			}
-			if ( isset($admin_page->options['is_jejugothic']) && $admin_page->options['is_jejugothic'] === '1' ) {
-				wp_register_style('jejugothic', 'http://fonts.googleapis.com/earlyaccess/jejugothic.css' );
-				wp_enqueue_style('jejugothic');
-			}
-			if ( isset($admin_page->options['is_jejumyeongjo']) && $admin_page->options['is_jejumyeongjo'] === '1' ) {
-				wp_register_style('jejumyeongjo', 'http://fonts.googleapis.com/earlyaccess/jejumyeongjo.css' );
-				wp_enqueue_style('jejumyeongjo');
-			}
+
+			// 제주 서체 - Jeju Fonts
+			if ( isset($admin_page->options['is_jejuhallasan']) && $admin_page->options['is_jejuhallasan'] === '1' )
+				$this->register_google_font('jejuhallasan');
+			if ( isset($admin_page->options['is_jejugothic']) && $admin_page->options['is_jejugothic'] === '1' )
+				$this->register_google_font('jejugothic');
+			if ( isset($admin_page->options['is_jejumyeongjo']) && $admin_page->options['is_jejumyeongjo'] === '1' )
+				$this->register_google_font('jejumyeongjo');
+
+			// 나눔폰트 - Nanum Fonts
+			if ( isset($admin_page->options['is_nanumbrushscript']) && $admin_page->options['is_nanumbrushscript'] === '1' )
+				$this->register_google_font('nanumbrushscript');
+			if ( isset($admin_page->options['is_nanumpenscript']) && $admin_page->options['is_nanumpenscript'] === '1' )
+				$this->register_google_font('nanumpenscript');
+			if ( isset($admin_page->options['is_nanumgothic']) && $admin_page->options['is_nanumgothic'] === '1' )
+				$this->register_google_font('nanumgothic');
+			if ( isset($admin_page->options['is_nanummyeongjo']) && $admin_page->options['is_nanummyeongjo'] === '1' )
+				$this->register_google_font('nanummyeongjo');
 		}
 
 		public function register_fonts_admin_css() {
+			// 미생체 - SDMiSaeng
 			wp_register_style('fonts_admin', plugins_url( 'hangeul-web-fonts/css/admin.css' ) );
 			wp_enqueue_style('fonts_admin');
 
-			wp_register_style('font_jejuhallasan', 'http://fonts.googleapis.com/earlyaccess/jejuhallasan.css' );
-			wp_enqueue_style('font_jejuhallasan');
+			// 제주 서체 - Jeju Fonts
+			$this->register_google_font('jejuhallasan');
+			$this->register_google_font('jejugothic');
+			$this->register_google_font('jejumyeongjo');
 
-			wp_register_style('font_jejugothic', 'http://fonts.googleapis.com/earlyaccess/jejugothic.css' );
-			wp_enqueue_style('font_jejugothic');
+			// 나눔폰트 - Nanum Fonts
+			$this->register_google_font('nanumbrushscript');
+			$this->register_google_font('nanumpenscript');
+			$this->register_google_font('nanumgothic');
+			$this->register_google_font('nanummyeongjo');
+		}
 
-			wp_register_style('font_jejumyeongjo', 'http://fonts.googleapis.com/earlyaccess/jejumyeongjo.css' );
-			wp_enqueue_style('font_jejumyeongjo');
+		public function register_google_font( $font_name = '' ) {
+			wp_register_style( $font_name, 'http://fonts.googleapis.com/earlyaccess/' . $font_name . '.css' );
+			wp_enqueue_style( $font_name );
 		}
 
 		public static function getInstance() {

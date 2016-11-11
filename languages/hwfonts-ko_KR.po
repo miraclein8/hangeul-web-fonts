@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: hwfonts\n"
-"POT-Creation-Date: 2016-11-10 21:03+0900\n"
-"PO-Revision-Date: 2016-11-10 21:04+0900\n"
+"POT-Creation-Date: 2016-11-11 15:21+0900\n"
+"PO-Revision-Date: 2016-11-11 15:21+0900\n"
 "Last-Translator: \n"
 "Language-Team: miracl2l22 <miracl2l22@gmail.com>\n"
 "Language: ko_KR\n"
@@ -22,25 +22,52 @@ msgstr ""
 msgid "Hangeul Web Fonts"
 msgstr "웹폰트"
 
-#: includes/class-admin.php:60
+#: includes/class-admin.php:53
 msgid "Web Fonts To Use"
 msgstr "사용할 폰트"
 
-#: includes/class-admin.php:91
+#: includes/class-admin.php:60 includes/class-admin.php:114
 msgid "SDMiSaeng"
 msgstr "미생체"
 
-#: includes/class-admin.php:96
+#: includes/class-admin.php:68
+msgid "Jeju Fonts"
+msgstr "제주 서체"
+
+#: includes/class-admin.php:76
+msgid "Nanum Fonts"
+msgstr "나눔글꼴"
+
+#: includes/class-admin.php:121
 msgid "Jeju Hallasan"
 msgstr "제주한라산체"
 
-#: includes/class-admin.php:100
+#: includes/class-admin.php:125
 msgid "Jeju Gothic"
 msgstr "제주고딕체"
 
-#: includes/class-admin.php:104
+#: includes/class-admin.php:129
 msgid "Jeju Myeongjo"
 msgstr "제주명조체"
+
+#: includes/class-admin.php:136
+msgid "Nanum Brush Script"
+msgstr "나눔손글씨 붓체"
+
+#: includes/class-admin.php:140
+msgid "Nanum Pen Script"
+msgstr "나눔손글씨 펜체"
+
+#: includes/class-admin.php:144
+msgid "Nanum Gothic"
+msgstr "나눔고딕"
+
+#: includes/class-admin.php:148
+msgid "Nanum Myeongjo"
+msgstr "나눔명조"
+
+#~ msgid "Use Google Fonts"
+#~ msgstr "구글폰트 사용"
 
 #~ msgid "Web Fonts Settings"
 #~ msgstr "웹폰트 설정"

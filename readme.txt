@@ -4,7 +4,7 @@ Donate link:
 Tags: korea, korean, hangeul, fonts, font
 Requires at least: 4.0
 Tested up to: 4.6.1
-Stable tag: 0.2
+Stable tag: 0.3
 License: GPL2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -51,16 +51,22 @@ A
 
 == Changelog ==
 
+= 0.3 =
+나눔폰트 (나눔손글씨 붓체, 나눔손글씨 펜체, 나눔고딕, 나눔명조) 추가 - Google Fonts
+
 = 0.2 =
-제주 서체(제주한라산체, 제주고딕체, 제주명조체) 추가
+제주 서체(제주한라산체, 제주고딕체, 제주명조체) 추가 - Google Fonts
 
 = 0.1 =
 미생체 추가
 
 == Upgrade Notice ==
 
+= 0.3 =
+나눔폰트 (나눔손글씨 붓체, 나눔손글씨 펜체, 나눔고딕, 나눔명조) 추가 - Google Fonts
+
 = 0.2 =
-저주 서체(제주한라산체, 제주고딕체, 제주명조체) 추가
+저주 서체(제주한라산체, 제주고딕체, 제주명조체) 추가 - Google Fonts
 
 == Arbitrary section ==
 

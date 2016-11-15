@@ -1,7 +1,7 @@
 === 한글 웹폰트 - Hangeul Web Fonts ===
 Contributors: miracl2l22
 Donate link: 
-Tags: korea, korean, hangeul, fonts, font
+Tags: korea, korean, hangeul, font, fonts
 Requires at least: 4.0
 Tested up to: 4.6.1
 Stable tag: 0.3
@@ -12,7 +12,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-한글 웹폰트 플러그인
+한글 웹폰트 플러그인<br />
+Hangeul Web Fonts
 
 * 미생체(SDMiSaeng)
 

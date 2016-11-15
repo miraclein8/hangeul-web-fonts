@@ -13,17 +13,16 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 == Description ==
 
 한글 웹폰트 플러그인
-Hangeul Web Fonts Plugin
 
 * 미생체(SDMiSaeng)
 
-미생체(.ttf) 다운: http://webtoon.daum.net/event/misaengfont
+미생체 URL: http://webtoon.daum.net/event/misaengfont
 
 * 제주한라산체(Jeju Hallasan)
 * 제주고딕체(Jeju Gothic)
 * 제주명조체(Jeju Myeongjo)
 
-제주 서체 다운: http://www.jeju.go.kr/jeju/symbol/font/infor.htm
+제주 서체 URL: http://www.jeju.go.kr/jeju/symbol/font.htm
 
 == Installation ==
 
@@ -38,12 +37,6 @@ Use the `Settings->Hangeul Web Fonts` screen to configure the plugin
 
 4. css에 파일에 `font-family`를 설정해 주세요.<br />
 Use `font-family` in stylesheet
-
-== Frequently Asked Questions ==
-
-= Q =
-
-A
 
 == Screenshots ==
 
@@ -67,9 +60,3 @@ A
 
 = 0.2 =
 저주 서체(제주한라산체, 제주고딕체, 제주명조체) 추가 - Google Fonts
-
-== Arbitrary section ==
-
-== A brief Markdown Example ==
-
-`<?php code(); // goes in backticks ?>`

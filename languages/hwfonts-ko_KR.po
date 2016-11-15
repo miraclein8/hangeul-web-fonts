@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: hwfonts\n"
-"POT-Creation-Date: 2016-11-11 15:21+0900\n"
-"PO-Revision-Date: 2016-11-11 15:21+0900\n"
+"POT-Creation-Date: 2016-11-16 02:39+0900\n"
+"PO-Revision-Date: 2016-11-16 02:40+0900\n"
 "Last-Translator: \n"
 "Language-Team: miracl2l22 <miracl2l22@gmail.com>\n"
 "Language: ko_KR\n"
@@ -16,6 +16,7 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: includes\n"
+"X-Poedit-SearchPath-2: Readme.txt\n"
 
 #: includes/class-admin.php:20 includes/class-admin.php:21
 #: includes/class-admin.php:32
@@ -65,12 +66,3 @@ msgstr "나눔고딕"
 #: includes/class-admin.php:148
 msgid "Nanum Myeongjo"
 msgstr "나눔명조"
-
-#~ msgid "Use Google Fonts"
-#~ msgstr "구글폰트 사용"
-
-#~ msgid "Web Fonts Settings"
-#~ msgstr "웹폰트 설정"
-
-#~ msgid "Use SDMiSaeng"
-#~ msgstr "미생체 사용"

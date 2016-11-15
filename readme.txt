@@ -1,7 +1,7 @@
 === 한글 웹폰트 - Hangeul Web Fonts ===
 Contributors: miracl2l22
 Donate link: 
-Tags: korea, korean, hangeul, font, fonts
+Tags: korea, korean, hangeul, font, fonts, web fonts
 Requires at least: 4.0
 Tested up to: 4.6.1
 Stable tag: 0.3

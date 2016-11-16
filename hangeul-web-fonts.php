@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: 한글 웹폰트 - Hangeul Web Fonts
- * Description: 워드프레스용 한글 웹폰트 - Hangeul Web Fonts for WordPress
+ * Description: 워드프레스용 한글 웹폰트 플러그인 - Hangeul web fonts plugin for WordPress
  * Version: 0.3
  * Author: miracl2l22
  * License: GPL2

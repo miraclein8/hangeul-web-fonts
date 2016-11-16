@@ -9,22 +9,13 @@
 		 url('../fonts/SDMiSaeng.otf') format('opentype');
 }
 
-.lbl_sdmisaeng {
-	font-family: SDMiSaeng; 
-	font-size: 1.25rem;
-}
+.lbl_sdmisaeng { font-family: SDMiSaeng; font-size: 1.25rem; }
 
 .lbl_jejuhallasan { font-family: Jeju Hallasan; }
 .lbl_jejugothic { font-family: Jeju Gothic; }
 .lbl_jejumyeongjo { font-family: Jeju Myeongjo; }
 
-.lbl_nanumbrushscript {
-	font-family: Nanum Brush Script;
-	font-size: 1.15rem;
-}
-.lbl_nanumpenscript {
-	font-family: Nanum Pen Script; 
-	font-size: 1.15rem;
-}
+.lbl_nanumbrushscript { font-family: Nanum Brush Script; font-size: 1.15rem; }
+.lbl_nanumpenscript { font-family: Nanum Pen Script; font-size: 1.15rem; }
 .lbl_nanumgothic { font-family: Nanum Gothic; }
 .lbl_nanummyeongjo { font-family: Nanum Myeongjo; }

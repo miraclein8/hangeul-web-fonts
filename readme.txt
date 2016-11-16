@@ -14,23 +14,22 @@ Hangeul web fonts management plugin for WordPress.
 
 Hangeul web fonts management plugin for WordPress.
 
----
-
 = - List of fonts - =
+  
+* [SDMiSaeng Font][1]  
+  -SDMiSaeng { font-family: SDMiSaeng; font-size: 1.25rem; }
 
-1. [SDMiSaeng Font][1]
+* [Jeju Fonts][2] - by Google Fonts Early Access  
+  -Jeju Hallasan { font-family: Jeju Hallasan; }  
+  -Jeju Gothic { font-family: Jeju Gothic; }  
+  -Jeju Myeongjo { font-family: Jeju Myeongjo; }
 
-2. [Jeju Fonts][2] - by Google Fonts Early Access
-   * Jeju Hallasan
-   * Jeju Gothic
-   * Jeju Myeongjo
-
-3. [Naver Nanum Fonts][3] - by Google Fonts Early Access  
-   *SIL Open Font License, 1.1* - [View License][4]  
-   * Nanum Brush Script
-   * Nanum Pen Script
-   * Nanum Gothic
-   * Nanum Myeongjo
+* [Naver Nanum Fonts][3] - by Google Fonts Early Access  
+  -Nanum Brush Script { font-family: Nanum Brush Script; font-size: 1.15rem; }  
+  -Nanum Pen Script { font-family: Nanum Pen Script; font-size: 1.15rem; }  
+  -Nanum Gothic { font-family: Nanum Gothic; }  
+  -Nanum Myeongjo { font-family: Nanum Myeongjo; }  
+  *SIL Open Font License, 1.1* - [View License][4]  
 
 [1]: http://webtoon.daum.net/event/misaengfont "SDMiSaeng Font Site"
 [2]: http://www.jeju.go.kr/jeju/symbol/font.htm "Jeju Fonts Site"
@@ -42,7 +41,7 @@ Hangeul web fonts management plugin for WordPress.
 1. Install the plugin through the WordPress plugins screen directly.
 1. Activate the plugin through the 'Plugins' screen in WordPress
 1. Use the Settings->Hangeul Web Fonts screen to configure the plugin
-1. Use Fonts by font-famliy in stylesheet
+1. Use Fonts by font-family in stylesheet
 
 == Screenshots ==
 
@@ -58,3 +57,5 @@ Add Jeju Fonts (Jeju Hallasan, Jeju Gothic, Jeju Myeongjo) - by Google Fonts
 
 = 0.1 =
 Add SDMiSaeng Font
+
+== Upgrade Notice ==

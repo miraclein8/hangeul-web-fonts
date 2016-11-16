@@ -5,6 +5,9 @@
  * Version: 0.3
  * Author: miracl2l22
  * License: GPL2
+ *
+ * Text Domain: hwfonts
+ * Domain Path: /languages/
  */
 
 /*  Copyright 2016  miracl2l22  (email : miracl2l22@gmail.com)

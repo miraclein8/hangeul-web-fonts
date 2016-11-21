@@ -1,13 +1,13 @@
 <?php
 /**
- * Plugin Name: 한글 웹폰트 - Hangeul Web Fonts
- * Description: 워드프레스용 한글 웹폰트 플러그인 - Hangeul web fonts plugin for WordPress
- * Version: 0.3
+ * Plugin Name: Hangeul Web Fonts
+ * Description: Hangeul web fonts management plugin for WordPress.
+ * Version: 0.3.1
  * Author: miracl2l22
  * License: GPL2
  *
- * Text Domain: hwfonts
- * Domain Path: /languages/
+ * Text Domain: hangeul-web-fonts
+ * Domain Path: /languages
  */
 
 /*  Copyright 2016  miracl2l22  (email : miracl2l22@gmail.com)
@@ -38,8 +38,7 @@ if ( ! class_exists( 'Hangeul_Web_Font' ) ) {
 		private $admin_page;
 
 		public function __construct() {
-			load_plugin_textdomain( 'hwfonts', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
-
+			add_action( 'plugins_loaded', array( $this, 'my_plugin_load_plugin_textdomain') );
 			add_action( 'wp_enqueue_scripts', array( $this, 'register_fonts_css' ) );
 			add_action( 'admin_menu', array( $this, 'register_fonts_admin_css') );
 
@@ -99,6 +98,10 @@ if ( ! class_exists( 'Hangeul_Web_Font' ) ) {
 		public function register_google_font( $font_name = '' ) {
 			wp_register_style( $font_name, 'http://fonts.googleapis.com/earlyaccess/' . $font_name . '.css' );
 			wp_enqueue_style( $font_name );
+		}
+
+		public function my_plugin_load_plugin_textdomain() {
+			load_plugin_textdomain( 'hangeul-web-fonts', FALSE, basename( dirname( __FILE__ ) ) . '/languages/' );
 		}
 
 		public static function getInstance() {

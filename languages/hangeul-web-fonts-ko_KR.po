@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: hwfonts\n"
-"POT-Creation-Date: 2016-11-16 02:39+0900\n"
-"PO-Revision-Date: 2016-11-16 02:40+0900\n"
+"Project-Id-Version: hangeul-web-fonts\n"
+"POT-Creation-Date: 2016-11-17 20:06+0900\n"
+"PO-Revision-Date: 2016-11-17 20:07+0900\n"
 "Last-Translator: \n"
 "Language-Team: miracl2l22 <miracl2l22@gmail.com>\n"
 "Language: ko_KR\n"
@@ -16,16 +16,15 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: includes\n"
-"X-Poedit-SearchPath-2: Readme.txt\n"
 
 #: includes/class-admin.php:20 includes/class-admin.php:21
 #: includes/class-admin.php:32
 msgid "Hangeul Web Fonts"
-msgstr "웹폰트"
+msgstr "한글 웹폰트"
 
 #: includes/class-admin.php:53
 msgid "Web Fonts To Use"
-msgstr "사용할 폰트"
+msgstr "사용할 웹폰트"
 
 #: includes/class-admin.php:60 includes/class-admin.php:114
 msgid "SDMiSaeng"

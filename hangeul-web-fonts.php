@@ -51,7 +51,7 @@ if ( ! class_exists( 'Hangeul_Web_Font' ) ) {
 
 		public function register_fonts_css() {
 			$admin_page = new stdClass();
-			$admin_page->options = get_option( 'hwfonts_options' );
+			$admin_page->options = get_option( 'fonts_options' );
 
 			// 미생체 - SDMiSaeng
 			if ( isset($admin_page->options['is_sdmisaeng']) && $admin_page->options['is_sdmisaeng'] === '1' ) {

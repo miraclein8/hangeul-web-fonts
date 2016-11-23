@@ -7,6 +7,7 @@
  * License: GPL2
  *
  * Text Domain: hangeul-web-fonts
+ * Domain Path: /languages/
  */
 
 /*  Copyright 2016  miracl2l22  (email : miracl2l22@gmail.com)
@@ -37,10 +38,15 @@ if ( ! class_exists( 'Hangeul_Web_Font' ) ) {
 		private $admin_page;
 
 		public function __construct() {
+			add_action( 'plugins_loaded',			array( $this, 'add_plugin_textdomain') );
 			add_action( 'wp_enqueue_scripts', array( $this, 'register_fonts_css' ) );
 			add_action( 'admin_menu',					array( $this, 'register_admin_fonts_css') );
 
 			$this -> load_files();
+		}
+
+		public function add_plugin_textdomain() {
+			load_plugin_textdomain( 'hangeul-web-fonts', false, basename( dirname(__FILE__) ) . '/languages/' );
 		}
 
 		public function load_files() {

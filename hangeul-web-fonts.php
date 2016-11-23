@@ -2,12 +2,11 @@
 /**
  * Plugin Name: Hangeul Web Fonts
  * Description: Hangeul web fonts management plugin for WordPress.
- * Version: 0.3.1
+ * Version: 0.4.1
  * Author: miracl2l22
  * License: GPL2
  *
  * Text Domain: hangeul-web-fonts
- * Domain Path: /languages
  */
 
 /*  Copyright 2016  miracl2l22  (email : miracl2l22@gmail.com)
@@ -38,9 +37,8 @@ if ( ! class_exists( 'Hangeul_Web_Font' ) ) {
 		private $admin_page;
 
 		public function __construct() {
-			add_action( 'plugins_loaded', array( $this, 'my_plugin_load_plugin_textdomain') );
 			add_action( 'wp_enqueue_scripts', array( $this, 'register_fonts_css' ) );
-			add_action( 'admin_menu', array( $this, 'register_fonts_admin_css') );
+			add_action( 'admin_menu',					array( $this, 'register_admin_fonts_css') );
 
 			$this -> load_files();
 		}
@@ -60,30 +58,6 @@ if ( ! class_exists( 'Hangeul_Web_Font' ) ) {
 			}
 
 			// 제주 서체 - Jeju Fonts
-			if ( isset($admin_page->options['is_jejuhallasan']) && $admin_page->options['is_jejuhallasan'] === '1' )
-				$this->register_google_font('jejuhallasan');
-			if ( isset($admin_page->options['is_jejugothic']) && $admin_page->options['is_jejugothic'] === '1' )
-				$this->register_google_font('jejugothic');
-			if ( isset($admin_page->options['is_jejumyeongjo']) && $admin_page->options['is_jejumyeongjo'] === '1' )
-				$this->register_google_font('jejumyeongjo');
-
-			// 나눔폰트 - Nanum Fonts
-			if ( isset($admin_page->options['is_nanumbrushscript']) && $admin_page->options['is_nanumbrushscript'] === '1' )
-				$this->register_google_font('nanumbrushscript');
-			if ( isset($admin_page->options['is_nanumpenscript']) && $admin_page->options['is_nanumpenscript'] === '1' )
-				$this->register_google_font('nanumpenscript');
-			if ( isset($admin_page->options['is_nanumgothic']) && $admin_page->options['is_nanumgothic'] === '1' )
-				$this->register_google_font('nanumgothic');
-			if ( isset($admin_page->options['is_nanummyeongjo']) && $admin_page->options['is_nanummyeongjo'] === '1' )
-				$this->register_google_font('nanummyeongjo');
-		}
-
-		public function register_fonts_admin_css() {
-			// 미생체 - SDMiSaeng
-			wp_register_style('fonts_admin', plugins_url( 'hangeul-web-fonts/css/admin.css' ) );
-			wp_enqueue_style('fonts_admin');
-
-			// 제주 서체 - Jeju Fonts
 			$this->register_google_font('jejuhallasan');
 			$this->register_google_font('jejugothic');
 			$this->register_google_font('jejumyeongjo');
@@ -95,13 +69,36 @@ if ( ! class_exists( 'Hangeul_Web_Font' ) ) {
 			$this->register_google_font('nanummyeongjo');
 		}
 
-		public function register_google_font( $font_name = '' ) {
-			wp_register_style( $font_name, 'http://fonts.googleapis.com/earlyaccess/' . $font_name . '.css' );
-			wp_enqueue_style( $font_name );
+		public function register_admin_fonts_css() {
+			// 미생체 - SDMiSaeng
+			wp_register_style('fonts_admin', plugins_url( 'hangeul-web-fonts/css/admin.css' ) );
+			wp_enqueue_style('fonts_admin');
+
+			// 제주 서체 - Jeju Fonts
+			$this->register_google_font_admin('jejuhallasan');
+			$this->register_google_font_admin('jejugothic');
+			$this->register_google_font_admin('jejumyeongjo');
+
+			// 나눔폰트 - Nanum Fonts
+			$this->register_google_font_admin('nanumbrushscript');
+			$this->register_google_font_admin('nanumpenscript');
+			$this->register_google_font_admin('nanumgothic');
+			$this->register_google_font_admin('nanummyeongjo');
 		}
 
-		public function my_plugin_load_plugin_textdomain() {
-			load_plugin_textdomain( 'hangeul-web-fonts', FALSE, basename( dirname( __FILE__ ) ) . '/languages/' );
+		public function register_google_font( $font_name = '' ) {
+			$admin_page = new stdClass();
+			$admin_page->options = get_option( 'fonts_options' );
+
+			if ( isset($admin_page->options['is_' . $font_name]) && $admin_page->options['is_' . $font_name] === '1' ) {
+				wp_register_style( $font_name, 'http://fonts.googleapis.com/earlyaccess/' . $font_name . '.css' );
+				wp_enqueue_style( $font_name );
+			}
+		}
+
+		public function register_google_font_admin( $font_name = '' ) {
+			wp_register_style( $font_name, 'http://fonts.googleapis.com/earlyaccess/' . $font_name . '.css' );
+			wp_enqueue_style( $font_name );
 		}
 
 		public static function getInstance() {

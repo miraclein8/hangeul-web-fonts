@@ -12,7 +12,7 @@ class Hangeul_Web_Fonts_admin {
 
 	public function __construct() {
 		add_action( 'admin_menu', array( $this, 'add_hwfonts_page' ) );
-		add_action( 'admin_init', array( $this, 'hwfonts_page_init' ) );
+		add_action( 'admin_init', array( $this, 'fonts_page_init' ) );
 	}
 
 	public function add_hwfonts_page() {
@@ -25,7 +25,33 @@ class Hangeul_Web_Fonts_admin {
 		);
 	}
 
-	public function hwfonts_page_init() {
+	public function create_hwfonts_page() {
+	?>
+		<div class="wrap">
+			<h1><?php _e( 'Hangeul Web Fonts', 'hangeul-web-fonts' );?></h1>
+
+			<?php
+				$active_tab = isset( $_GET['tab'] ) ? $_GET['tab'] : 'fonts_options';
+			?>
+
+			<h2 class="nav-tab-wrapper">
+				<a href="?page=hangeul-web-fonts&tab=fonts_options" class="nav-tab <?php echo $active_tab == 'fonts_options' ? 'nav-tab-active' : ''; ?>" ><?php _e( 'Web Fonts To Use', 'hangeul-web-fonts' ); ?></a>
+			</h2>          
+
+			<form method="post" action="options.php">
+			<?php
+				if( $active_tab == 'fonts_options' ) {
+					settings_fields('fonts_group'); // $option_group
+					do_settings_sections('hwfonts_fonts_page'); // $page
+				}
+				submit_button();
+			?>
+			</form>
+		</div>
+	<?php
+	}
+
+	public function fonts_page_init() {
 
 		// tab
 		add_settings_section(
@@ -67,29 +93,6 @@ class Hangeul_Web_Fonts_admin {
 			'fonts_options' // $option_name
 			// $sanitize_callback
 		);
-
-		// CSS Options Tab
-		add_settings_section(
-			'css_section', // $id
-			'', // $title
-			array( $this, 'css_section_desc' ), // $callback
-			'hwfonts_css_page' // $page
-		);
-
-		add_settings_field(
-			'css_settings', // $id
-			__( 'CSS Settings', 'hangeul-web-fonts'), // $title
-			array( $this, 'css_settings_cb' ), // $callback
-			'hwfonts_css_page', // $page
-			'css_section' // $section
-			 // $args
-		);
-
-		register_setting(
-			'css_group', // $option_group
-			'css_options' // $option_name
-			// $sanitize_callback
-		);
 	}
 
 	public function fonts_section_desc() {
@@ -97,65 +100,83 @@ class Hangeul_Web_Fonts_admin {
 	}
 
 	public function sdmisaeng_font_cb() {
-		$this->generator_fonts_check('fonts_options', 'sdmisaeng', 'SDMiSaeng', '1.25rem;');
+		$sdmisaeng = array(
+			'name'				=> 'sdmisaeng',
+			'title'				=> '미생체',
+			'font-family'	=> 'SDMiSaeng',
+			'font-size'		=> '1.25rem',
+			'options'			=> 'fonts_options',
+		);
+		$this->register_checkbox_fonts( $sdmisaeng );
 	}
 
 	public function jeju_fonts_cb() {
-		$this->generator_fonts_check('fonts_options', 'jejuhallasan', 'Jeju Hallasan');
-		$this->generator_fonts_check('fonts_options', 'jejugothic', 'Jeju Gothic');
-		$this->generator_fonts_check('fonts_options', 'jejumyeongjo', 'Jeju Myeongjo');
+		$jejuhallasan = array(
+			'name'				=> 'jejuhallasan',
+			'title'				=> '제주한라산체',
+			'font-family'	=> 'Jeju Hallasan',
+			'options'			=> 'fonts_options',
+		);
+		$this->register_checkbox_fonts( $jejuhallasan );
+		$jejugothic = array(
+			'name'				=> 'jejugothic',
+			'title'				=> '제주고딕체',
+			'font-family'	=> 'Jeju Gothic',
+			'options'			=> 'fonts_options',
+		);
+		$this->register_checkbox_fonts( $jejugothic );
+		$jejumyeongjo = array(
+			'name'				=> 'jejumyeongjo',
+			'title'				=> '제주명조체',
+			'font-family'	=> 'Jeju Myeongjo',
+			'options'			=> 'fonts_options',
+		);
+		$this->register_checkbox_fonts( $jejumyeongjo );
 	}
 
 	public function nanum_fonts_cb() {
-		$this->generator_fonts_check('fonts_options', 'nanumbrushscript', 'Nanum Brush Script', '1.15rem;');
-		$this->generator_fonts_check('fonts_options', 'nanumpenscript', 'Nanum Pen Script', '1.15rem;');
-		$this->generator_fonts_check('fonts_options', 'nanumgothic', 'Nanum Gothic');
-		$this->generator_fonts_check('fonts_options', 'nanummyeongjo', 'Nanum Myeongjo');
-	}
-
-	public function generator_fonts_check( $option, $is_font, $font_name, $font_size = '') {
-		$this->options = get_option($option);
-		printf(
-			'<input %s type="checkbox" name="'.$option.'[is_'.$is_font.']" id="is_'.$is_font.'" value="1" /> <label class="lbl_'.$is_font.'">' . __( $font_name, 'hangeul-web-fonts' ) . '</label> <label>{ font-family: '.$font_name.'; %s}</label><p></p>',
-			( isset( $this->options['is_$is_font'] ) && $this->options['is_$is_font'] === '1' ) ? 'checked' : '',
-			! $font_size == '' ? 'font-size: '.$font_size.' ' : ''
+		$nanumbrushscript = array(
+			'name'				=> 'nanumbrushscript',
+			'title'				=> '나눔손글씨 붓체',
+			'font-family'	=> 'Nanum Brush Script',
+			'font-size'		=> '1.15rem',
+			'options'			=> 'fonts_options',
 		);
+		$this->register_checkbox_fonts( $nanumbrushscript );
+		$nanumpenscript = array(
+			'name'				=> 'nanumpenscript',
+			'title'				=> '나눔손글씨 펜체',
+			'font-family'	=> 'Nanum Pen Script',
+			'font-size'		=> '1.15rem',
+			'options'			=> 'fonts_options',
+		);
+		$this->register_checkbox_fonts( $nanumpenscript );
+		$nanumgothic = array(
+			'name'				=> 'nanumgothic',
+			'title'				=> '나눔고딕',
+			'font-family'	=> 'Nanum Gothic',
+			'options'			=> 'fonts_options',
+		);
+		$this->register_checkbox_fonts( $nanumgothic );
+		$nanummyeongjo = array(
+			'name'				=> 'nanummyeongjo',
+			'title'				=> '나눔명조',
+			'font-family'	=> 'Nanum Myeongjo',
+			'options'			=> 'fonts_options',
+		);
+		$this->register_checkbox_fonts( $nanummyeongjo );
 	}
 
-	public function css_section_desc() {
-		/* */
-	}
-
-	public function css_settings_cb() {
-		/* */
-	}
-
-	public function create_hwfonts_page() {
-	?>
-		<div class="wrap">
-			<h1><?php _e( 'Hangeul Web Fonts', 'hangeul-web-fonts' );?></h1>
-			<?php
-				$active_tab = isset( $_GET['tab'] ) ? $_GET['tab'] : 'fonts_options';
-			?>
-
-			<h2 class="nav-tab-wrapper">
-				<a href="?page=hangeul-web-fonts&tab=fonts_options" class="nav-tab <?php echo $active_tab == 'fonts_options' ? 'nav-tab-active' : ''; ?>" ><?php _e( 'Web Fonts To Use', 'hangeul-web-fonts' ); ?></a>
-				<a href="?page=hangeul-web-fonts&tab=css_options" class="nav-tab <?php echo $active_tab == 'css_options' ? 'nav-tab-active' : ''; ?>" ><?php _e( 'CSS Options', 'hangeul-web-fonts' ); ?></a>
-			</h2>          
-
-			<form method="post" action="options.php">
-			<?php
-				if( $active_tab == 'fonts_options' ) {
-					settings_fields('fonts_group'); // $option_group
-					do_settings_sections('hwfonts_fonts_page'); // $page
-				} else if( $active_tab == 'css_options' ) {
-					settings_fields('css_group'); // $option_group
-					do_settings_sections('hwfonts_css_page'); // $page
-				}
-				submit_button();
-			?>
-			</form>
-		</div>
-	<?php
+	public function register_checkbox_fonts( $args ) {
+		$this->options = get_option($args['options']);
+		$is_name = 'is_' . $args['name'];
+		printf(
+			'<input %s type="checkbox" name="%s" id="' . $is_name . '" value="1" /> <label class="lbl_' . $args['name'] . '">%s</label> <label>{ font-family: %s; %s}</label><p></p>',
+			( isset( $this->options[$is_name] ) && $this->options[$is_name] === '1' ) ? 'checked' : '', // checked
+			$args['options'] . '[' . $is_name . ']', // name
+			$args['title'], // title
+			$args['font-family'], // font-family
+			isset( $args['font-size'] ) ? 'font-size: ' . $args['font-size'] . '; ' : '' // font-size
+		);
 	}
 }

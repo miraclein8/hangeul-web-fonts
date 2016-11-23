@@ -3,7 +3,7 @@ Contributors: miracl2l22
 Tags: font, fonts, hangeul, korea, korean, web font, web fonts
 Requires at least: 4.0
 Tested up to: 4.6.1
-Stable tag: 0.3.1
+Stable tag: 0.4.1
 License: GPL2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -52,6 +52,15 @@ Hangeul web fonts management plugin for WordPress.
 
 == Changelog ==
 
+= 0.4.1 =
+Edit code
+
+= 0.4 =
+Edit code
+
+= 0.3.2 =
+Edit code
+
 = 0.3.1 =
 Update textdomain & readme.txt
 
@@ -65,6 +74,15 @@ Add Jeju Fonts (Jeju Hallasan, Jeju Gothic, Jeju Myeongjo) - by Google Fonts Ear
 Add SDMiSaeng Font
 
 == Upgrade Notice ==
+
+= 0.4.1 =
+Edit code
+
+= 0.4 =
+Edit code
+
+= 0.3.2 =
+Edit code
 
 = 0.3.1 =
 Update textdomain & readme.txt
